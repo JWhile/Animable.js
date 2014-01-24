@@ -41,11 +41,14 @@ Animation.prototype.next = function(now)
 };
 
 var animations = []; // :Array<Animation>
+var loop = false; // :boolean
 
 // function next():void
 var next = function()
 {
-    if(animations.length > 0)
+    loop = (animations.length > 0);
+
+    if(loop)
     {
         newFrame(next);
 
@@ -60,6 +63,17 @@ var next = function()
                 --i;
             }
         }
+    }
+};
+
+// function addAnimation(int from, int to, int time, function update):void
+var addAnimation = function(from, to, time, update)
+{
+    animations.push(new Animation(from, to, time, update));
+
+    if(!loop)
+    {
+        newFrame(next);
     }
 };
 
