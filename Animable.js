@@ -34,4 +34,16 @@ Animation.prototype.next = function(now)
     }
 };
 
+var animations = []; // :Array<Animation>
+
+var next = function()
+{
+    newFrame(next);
+
+    for(var i = 0; i < animations.length; ++i)
+    {
+        animations[i].next();
+    }
+};
+
 })();
