@@ -12,6 +12,7 @@ p{
     padding-left:30px;
 }
 a,a:hover,a:visited{
+    text-decoration:underline;
     color:#08D
 }
 #page{
@@ -28,6 +29,7 @@ a,a:hover,a:visited{
         margin:50px 0;
         border-top:1px solid rgba(0,0,0,0.3);
         border-bottom:1px solid rgba(0,0,0,0.3);
+        box-shadow:0 0 2px #bbb;
     }
     #exemple1{
         height:700px;
@@ -53,3 +55,17 @@ a,a:hover,a:visited{
             text-align:center;
             font-size:10px;
         }
+    #exemple2{
+    }
+        .num{
+            padding:5px 15px;
+            background:#efefef;
+            font-size:18px;
+        }
+        #exemple2 p{
+            text-align:center;
+        }
+            #exemple2 a{
+                display:inline-block;
+                margin:0 10px;
+            }

@@ -69,11 +69,51 @@ new Builder('div')
     .insert(page);
 
 // Exemple 2
+var num = 0;
+var input = new Builder('p')
+        .className('num')
+        .text('0');
+
+var setNum = function(n, time)
+{
+    anime(function(value)
+    {
+        input.text(value | 0);
+
+    }, num, num += n, Math.abs(n) / 2 + 250);
+};
+
 new Builder('div')
     .className('exemple')
     .set('id', 'exemple2')
     .append(new Builder('h2')
-        .text('Exemple 2 : anime(function update, int from, int to, int time)'))
+        .text('Exemple 2 : anime()'))
+    .append(input)
+    .append(new Builder('p')
+        .append(new Builder('a')
+            .text('+ 50')
+            .event('click', function()
+            {
+                setNum(50);
+            }))
+        .append(new Builder('a')
+            .text('+ 1000')
+            .event('click', function()
+            {
+                setNum(1000);
+            }))
+        .append(new Builder('a')
+            .text('- 500')
+            .event('click', function()
+            {
+                setNum(-500);
+            }))
+        .append(new Builder('a')
+            .text('- 1200')
+            .event('click', function()
+            {
+                setNum(-1200);
+            })))
     .insert(page);
     </script>
 </body>
