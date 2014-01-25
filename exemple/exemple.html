@@ -4,11 +4,69 @@
     <title>Animable.js - Exemple</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
+    <link rel="stylesheet" type="text/css" href="exemple.css" />
+
     <script src="../libs/RequestFrame.js/RequestFrame.js"></script>
     <script src="libs/Builder.js/Builder.js"></script>
 
     <script src="../Animable.js"></script>
 </head>
 <body>
+    <script>
+var carre = new Builder('div')
+        .className('carre')
+        .text('var carre = new Builder("div")');
+
+new Builder('div')
+    .set('id', 'page')
+    .append(new Builder('h1')
+        .text('Animable.js'))
+    .append(new Builder('p')
+        .html('<a href="https://github.com/JWhile/Animable.js">Retour</a>'))
+// Exemple 1
+    .append(new Builder('div')
+        .className('exemple')
+        .set('id', 'exemple1')
+        .append(new Builder('h2')
+            .text('Exemple 1 : Anime width & height'))
+        .append(carre
+            .css('top', '150px')
+            .css('left', '150px'))
+        .append(new Builder('span')
+            .css('top', '150px')
+            .css('left', '0')
+            .text('carre.anime("left", 700, 1500)')
+            .event('click', function()
+            {
+                carre.anime('left', 700, 1500);
+            }))
+        .append(new Builder('span')
+            .css('top', '0')
+            .css('left', '700px')
+            .text('carre.anime("top", 400, 850)')
+            .event('click', function()
+            {
+                carre.anime('top', 400, 850);
+            }))
+        .append(new Builder('span')
+            .css('top', '400px')
+            .css('left', '850px')
+            .text('carre.anime("left", 150, 550)')
+            .event('click', function()
+            {
+                carre.anime('left', 150, 550);
+            }))
+        .append(new Builder('span')
+            .css('top', '550px')
+            .css('left', '150px')
+            .text('carre.anime("top", 150, 350)')
+            .event('click', function()
+            {
+                carre.anime('top', 150, 350);
+            }))
+        .insert(document.body))
+
+    .insert(document.body);
+    </script>
 </body>
 </html>
