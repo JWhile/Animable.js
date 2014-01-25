@@ -6,6 +6,8 @@
  * Animable.js
  */
 
+var anime;
+
 (function(){ // namespace
 
 // class Animation
@@ -66,8 +68,8 @@ var next = function()
     }
 };
 
-// function addAnimation(int from, int to, int time, function update):void
-var addAnimation = function(from, to, time, update)
+// function anime(function update, int from, int to, int time):void
+anime = function(update, from, to, time)
 {
     animations.push(new Animation(from, to, time, update));
 
