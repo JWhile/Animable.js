@@ -77,7 +77,7 @@ anime = function(update, from, to, time)
 
 if(typeof Builder === 'function')
 {
-    // function anime(String property, int to, function callback)
+    // function anime(String property, int to, int time, function callback)
     Builder.prototype.anime = function(property, to, time, callback)
     {
         var self = this;
