@@ -68,4 +68,32 @@ anime = function(update, from, to, time)
     }
 };
 
+if(typeof Builder === 'function')
+{
+    // function anime(String property, int to, function callback)
+    Builder.prototype.anime = function(property, to, time, callback)
+    {
+        var self = this;
+
+        var style = Builder.getStyle(this.node, property);
+        var unit = (style.match(/em$|px$|%$/i) || [''])[0];
+
+        anime(function(value)
+        {
+            if(value === to)
+            {
+                if(callback != null)
+                {
+                    callback();
+                }
+            }
+
+            self.node.style[property] = value + unit;
+
+        }, parseInt(style), to, time);
+
+        return this;
+    };
+}
+
 })();
