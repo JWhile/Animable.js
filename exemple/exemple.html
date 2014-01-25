@@ -13,60 +13,68 @@
 </head>
 <body>
     <script>
-var carre = new Builder('div')
-        .className('carre')
-        .text('var carre = new Builder("div")');
-
-new Builder('div')
+var page = new Builder('div')
     .set('id', 'page')
     .append(new Builder('h1')
         .text('Animable.js'))
     .append(new Builder('p')
         .html('<a href="https://github.com/JWhile/Animable.js">Retour</a>'))
-// Exemple 1
-    .append(new Builder('div')
-        .className('exemple')
-        .set('id', 'exemple1')
-        .append(new Builder('h2')
-            .text('Exemple 1 : Anime width & height'))
-        .append(carre
-            .css('top', '150px')
-            .css('left', '150px'))
-        .append(new Builder('span')
-            .css('top', '150px')
-            .css('left', '0')
-            .text('carre.anime("left", 700, 1500)')
-            .event('click', function()
-            {
-                carre.anime('left', 700, 1500);
-            }))
-        .append(new Builder('span')
-            .css('top', '0')
-            .css('left', '700px')
-            .text('carre.anime("top", 400, 850)')
-            .event('click', function()
-            {
-                carre.anime('top', 400, 850);
-            }))
-        .append(new Builder('span')
-            .css('top', '400px')
-            .css('left', '850px')
-            .text('carre.anime("left", 150, 550)')
-            .event('click', function()
-            {
-                carre.anime('left', 150, 550);
-            }))
-        .append(new Builder('span')
-            .css('top', '550px')
-            .css('left', '150px')
-            .text('carre.anime("top", 150, 350)')
-            .event('click', function()
-            {
-                carre.anime('top', 150, 350);
-            }))
-        .insert(document.body))
-
     .insert(document.body);
+
+// Exemple 1
+var carre = new Builder('div')
+        .className('carre')
+        .text('var carre = new Builder("div")');
+
+new Builder('div')
+    .className('exemple')
+    .set('id', 'exemple1')
+    .append(new Builder('h2')
+        .text('Exemple 1 : Builder::anime()'))
+    .append(carre
+        .css('top', '150px')
+        .css('left', '150px'))
+    .append(new Builder('span')
+        .css('top', '150px')
+        .css('left', '0')
+        .text('carre.anime("left", 700, 1500)')
+        .event('click', function()
+        {
+            carre.anime('left', 700, 1500);
+        }))
+    .append(new Builder('span')
+        .css('top', '0')
+        .css('left', '700px')
+        .text('carre.anime("top", 400, 850)')
+        .event('click', function()
+        {
+            carre.anime('top', 400, 850);
+        }))
+    .append(new Builder('span')
+        .css('top', '400px')
+        .css('left', '850px')
+        .text('carre.anime("left", 150, 550)')
+        .event('click', function()
+        {
+            carre.anime('left', 150, 550);
+        }))
+    .append(new Builder('span')
+        .css('top', '550px')
+        .css('left', '150px')
+        .text('carre.anime("top", 150, 350)')
+        .event('click', function()
+        {
+            carre.anime('top', 150, 350);
+        }))
+    .insert(page);
+
+// Exemple 2
+new Builder('div')
+    .className('exemple')
+    .set('id', 'exemple2')
+    .append(new Builder('h2')
+        .text('Exemple 2 : anime(function update, int from, int to, int time)'))
+    .insert(page);
     </script>
 </body>
 </html>
