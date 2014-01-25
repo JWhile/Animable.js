@@ -2,6 +2,10 @@
 
 Make Builder Animable !
 
+# Exemple
+
+Voir les examples : [exemple/exemple.html](https://github.com/JWhile/Animable.js/blob/master/exemple/exemple.html)
+
 ### License
 
 > The MIT License (MIT)
