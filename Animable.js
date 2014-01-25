@@ -26,9 +26,16 @@ Animation.prototype.next = function(now)
 {
     var n = (now - this.start) / this.time;
 
+    if(n >= 1)
+    {
+        this.update(this.diff + this.from);
+
+        return true;
+    }
+
     this.update(n * this.diff + this.from);
 
-    return (n >= 1);
+    return false;
 };
 
 var animations = []; // :Array<Animation>
