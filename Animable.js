@@ -3,7 +3,7 @@
  *
  * https://github.com/JWhile/Animable.js
  *
- * Animable.js
+ * version 1.0.0
  */
 
 var anime;
