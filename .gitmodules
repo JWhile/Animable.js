@@ -1,6 +1,0 @@
-[submodule "libs/RequestFrame.js"]
-	path = libs/RequestFrame.js
-	url = git@github.com:JWhile/RequestFrame.js.git
-[submodule "exemple/libs/Builder.js"]
-	path = exemple/libs/Builder.js
-	url = git@github.com:JWhile/Builder.js.git
