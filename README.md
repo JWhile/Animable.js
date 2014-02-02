@@ -4,7 +4,7 @@ Make Builder Animable !
 
 # Exemple
 
-Voir les examples : [exemple/exemple.html](https://github.com/JWhile/Animable.js/blob/master/exemple/exemple.html)
+[Exemple](http://jwhile.github.io/#Animable)
 
 ### License
 
