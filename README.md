@@ -2,9 +2,31 @@
 
 Make Builder Animable !
 
-# Exemple
+### Exemple
 
 [Exemple](http://jwhile.github.io/#Animable)
+
+### Références
+
+##### function anime(update, from, to, time)
+
+Exécute `update` a 60 fps en lui transmettant la valeur actuelle en 1er paramètre.
+
+* `update` _function_ Fonction exécuté à chaque frame.
+* `from` _Number_ Nombre de départ.
+* `to` _Number_ Nombre de fin.
+* `time` _int_ Durée de l'animation.
+
+##### Builder::anime(property, to, time, callback)
+
+Anime la `property` CSS de l'élément.
+Détecte automatiquement le valeur de départ et l'unité.
+`callback` est exécuté une fois l'animation terminée.
+
+* `property` _String_ Propriété CSS.
+* `to` _int_ Valeur de fin (sans l'unité).
+* `time` _int_ Durée de l'animation.
+* `callback` _function_ Fonction exécuté à la fin de l'animation. _(Optionnel)_
 
 ### License
 
