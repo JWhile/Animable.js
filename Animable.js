@@ -11,8 +11,10 @@ var anime;
 (function(){ // namespace
 
 // class Animation
-function Animation(from, to, time, update)
+function Animation(id, from, to, time, update)
 {
+    this.id = id; // :int
+
     this.from = from; // :int
     this.diff = to - from; // :int
 
@@ -38,6 +40,7 @@ Animation.prototype.next = function(now)
     return false;
 };
 
+var lastAnimId = 0; // :int
 var animations = []; // :Array<Animation>
 var loop = false; // :boolean
 
@@ -64,15 +67,17 @@ var next = function()
     }
 };
 
-// function anime(function update, int from, int to, int time):void
+// function anime(function update, int from, int to, int time):int
 anime = function(update, from, to, time)
 {
-    animations.push(new Animation(from, to, time, update));
+    animations.push(new Animation(++lastAnimId, from, to, time, update));
 
     if(!loop)
     {
         newFrame(next);
     }
+
+    return lastAnimId;
 };
 
 if(typeof Builder === 'function')
