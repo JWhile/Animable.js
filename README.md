@@ -13,11 +13,18 @@ Make Builder Animable !
 ##### function anime(update, from, to, time)
 
 Exécute `update` a 60 fps en lui transmettant la valeur actuelle en 1er paramètre.
+Renvois l'_id_ (_int_) de l'animation.
 
 * `update` _function_ Fonction exécutée à chaque frame.
 * `from` _Number_ Nombre de départ.
 * `to` _Number_ Nombre de fin.
 * `time` _int_ Durée de l'animation.
+
+##### function stopAnime(id)
+
+Arrête l'animation correspondant à l'_id_.
+
+* `id` _int_ Identifiant unique renvoyé par `function anime()`.
 
 ##### Builder::anime(property, to, time, callback)
 
