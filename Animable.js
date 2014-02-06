@@ -6,7 +6,7 @@
  * version 1.0.0
  */
 
-var anime;
+var anime,stopAnime;
 
 (function(){ // namespace
 
@@ -78,6 +78,20 @@ anime = function(update, from, to, time)
     }
 
     return lastAnimId;
+};
+
+// function stopAnime(int id):void
+stopAnime = function(id)
+{
+    for(var i = 0; i < animations.length; ++i)
+    {
+        if(animations[i].id === id)
+        {
+            animations.splice(i, 1);
+
+            --i;
+        }
+    }
 };
 
 if(typeof Builder === 'function')
