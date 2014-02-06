@@ -127,6 +127,33 @@ if(typeof Builder === 'function')
 
         return this;
     };
+
+    // function stopAnime(String property = null):void
+    Builder.prototype.stopAnime = function(property)
+    {
+        if(!this._animations)
+        {
+            return;
+        }
+
+        if(typeof property === 'string')
+        {
+            if(this._animations[property])
+            {
+                stopAnime(this._animations[property]);
+            }
+        }
+        else
+        {
+            for(var key in this._animations)
+            {
+                if(this._animations.hasOwnProperty(key))
+                {
+                    stopAnime(this._animations[key]);
+                }
+            }
+        }
+    };
 }
 
 })();
