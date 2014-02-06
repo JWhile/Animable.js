@@ -37,6 +37,17 @@ Détecte automatiquement la valeur de départ et l'unité.
 * `time` _int_ Durée de l'animation.
 * `callback` _function_ Fonction exécutée à la fin de l'animation. _(Optionnel)_
 
+_Note: Créer une propriété `_animations` dans le `Builder`._
+
+##### Builder::stopAnime(property)
+
+Annule une ou plusieurs animations sur un _Builder_.
+Si `property` n'est pas défini, arrête toute les animations lié à ce _Builder_.
+
+* `property` _String_ Propriété animée à stoppper. _(Optionnel)_
+
+_Note: Créer une propriété `_animations` dans le `Builder`._
+
 ### License
 
 > The MIT License (MIT)
