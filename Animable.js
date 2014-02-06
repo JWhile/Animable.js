@@ -99,12 +99,19 @@ if(typeof Builder === 'function')
     // function anime(String property, int to, int time, function callback = null):@Chainable
     Builder.prototype.anime = function(property, to, time, callback)
     {
+        this._animations = this._animations || {}; // Map<String, int>
+
+        if(this._animations[property])
+        {
+            stopAnime(this._animations[property]);
+        }
+
         var self = this;
 
         var style = Builder.getStyle(this.node, property);
         var unit = (style.match(/em$|px$|%$/i) || [''])[0];
 
-        anime(function(value)
+        this._animations[property] = anime(function(value)
         {
             if(value === to)
             {
