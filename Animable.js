@@ -15,8 +15,8 @@ function Animation(id, from, to, time, update)
 {
     this.id = id; // :int
 
-    this.from = from; // :int
-    this.diff = to - from; // :int
+    this.from = from; // :float
+    this.diff = to - from; // :float
 
     this.start = Date.now(); // :long
     this.time = time; // :int
@@ -67,7 +67,7 @@ var next = function()
     }
 };
 
-// function anime(function update, int from, int to, int time):int
+// function anime(function update, float from, float to, int time):int
 anime = function(update, from, to, time)
 {
     animations.push(new Animation(++lastAnimId, from, to, time, update));
@@ -82,7 +82,7 @@ anime = function(update, from, to, time)
 
 if(typeof Builder === 'function')
 {
-    // function anime(String property, int to, int time, function callback = null)
+    // function anime(String property, int to, int time, function callback = null):@Chainable
     Builder.prototype.anime = function(property, to, time, callback)
     {
         var self = this;
