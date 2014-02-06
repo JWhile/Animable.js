@@ -115,6 +115,8 @@ if(typeof Builder === 'function')
         {
             if(value === to)
             {
+                delete self._animations[property];
+
                 if(callback != null)
                 {
                     callback();
@@ -131,16 +133,15 @@ if(typeof Builder === 'function')
     // function stopAnime(String property = null):void
     Builder.prototype.stopAnime = function(property)
     {
-        if(!this._animations)
-        {
-            return;
-        }
+        this._animations = this._animations || {}; // Map<String, int>
 
         if(typeof property === 'string')
         {
             if(this._animations[property])
             {
                 stopAnime(this._animations[property]);
+
+                delete this._animations[property];
             }
         }
         else
@@ -152,6 +153,8 @@ if(typeof Builder === 'function')
                     stopAnime(this._animations[key]);
                 }
             }
+
+            this._animations = {};
         }
     };
 }
