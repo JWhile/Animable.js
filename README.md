@@ -10,7 +10,7 @@ Make Builder Animable !
 
 ### Références
 
-##### function anime(update, from, to, time)
+##### function anime(update, from, to, time, smooth)
 
 Exécute `update` a 60 fps en lui transmettant la valeur actuelle en 1er paramètre.
 Renvois l'_id_ (_int_) de l'animation.
@@ -19,6 +19,7 @@ Renvois l'_id_ (_int_) de l'animation.
 * `from` _Number_ Nombre de départ.
 * `to` _Number_ Nombre de fin.
 * `time` _int_ Durée de l'animation.
+* `smooth` _function_ Fonction d'accélération de l'animation. Par défault `function(a,b,c){return a / b * c;}`. _(Optionnel)_
 
 ##### function stopAnime(id)
 
@@ -26,7 +27,7 @@ Arrête l'animation correspondant à l'_id_.
 
 * `id` _int_ Identifiant unique renvoyé par `function anime()`.
 
-##### Builder::anime(property, to, time, callback)
+##### Builder::anime(property, to, time, callback, smooth)
 
 Anime la `property` CSS de l'élément.
 Détecte automatiquement la valeur de départ et l'unité.
@@ -35,7 +36,8 @@ Détecte automatiquement la valeur de départ et l'unité.
 * `property` _String_ Propriété CSS.
 * `to` _int_ Valeur de fin (sans l'unité).
 * `time` _int_ Durée de l'animation.
-* `callback` _function_ Fonction exécutée à la fin de l'animation. _(Optionnel)_
+* `callback` _function_ Fonction exécutée à la fin de l'animation. Par défault `null`. _(Optionnel)_
+* `smooth` _function_ Fonction d'accélération de l'animation. Par défault `function(a,b,c){return a / b * c;}`. _(Optionnel)_
 
 _Note: Créer une propriété `_animations` dans le `Builder`._
 
