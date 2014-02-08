@@ -3,7 +3,7 @@
  *
  * https://github.com/JWhile/Animable.js
  *
- * version 1.3.0
+ * version 1.3.0-fix
  */
 
 var anime,stopAnime,smooth;
