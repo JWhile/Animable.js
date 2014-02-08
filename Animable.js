@@ -3,7 +3,7 @@
  *
  * https://github.com/JWhile/Animable.js
  *
- * version 1.3.1
+ * version 1.4.0
  */
 
 var anime,stopAnime,smooth;
@@ -110,12 +110,13 @@ smooth = {
     },
 
 /**
- * Les effets qui suivent sont basés sur les *Easing Functions* de *Robert Panner* <http://robertpenner.com/easing/>
+ * Les _smooth effects_ qui suivent sont basés sur les *Easing Functions* de *Robert Panner* <http://robertpenner.com/easing/>
  *
- * t = currTime
- * c = endValue
- * d = endTime
+ * t = currTime (int)
+ * c = endValue (float)
+ * d = endTime (int)
  */
+
     'CubicIn': function(t, c, d)
     {
         t /= d;
