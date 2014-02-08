@@ -11,7 +11,7 @@ var anime,stopAnime;
 (function(){ // namespace
 
 // class Animation
-function Animation(id, from, to, time, update)
+function Animation(id, from, to, time, update, smooth)
 {
     this.id = id; // :int
 
@@ -22,20 +22,22 @@ function Animation(id, from, to, time, update)
     this.time = time; // :int
 
     this.update = update; // :function
+
+    this.smooth = smooth; // :function
 }
 // function next(long now):boolean
 Animation.prototype.next = function(now)
 {
-    var n = (now - this.start) / this.time;
+    var currTime = now - this.start;
 
-    if(n >= 1)
+    if(currTime >= this.time)
     {
         this.update(this.diff + this.from);
 
         return true;
     }
 
-    this.update(n * this.diff + this.from);
+    this.update(this.smooth(currTime, this.time, this.diff + this.from));
 
     return false;
 };
@@ -43,6 +45,12 @@ Animation.prototype.next = function(now)
 var lastAnimId = 0; // :int
 var animations = []; // :Array<Animation>
 var loop = false; // :boolean
+
+// function defaultSmooth(int currTime, int endTime, float endValue):float
+var defaultSmooth = function(currTime, endTime, endValue)
+{
+    return currTime / endTime * endValue;
+};
 
 // function next():void
 var next = function()
@@ -67,10 +75,10 @@ var next = function()
     }
 };
 
-// function anime(function update, float from, float to, int time):int
-anime = function(update, from, to, time)
+// function anime(function update, float from, float to, int time, function smooth = null):int
+anime = function(update, from, to, time, smooth)
 {
-    animations.push(new Animation(++lastAnimId, from, to, time, update));
+    animations.push(new Animation(++lastAnimId, from, to, time, update, (typeof smooth === 'function')? smooth : defaultSmooth));
 
     if(!loop)
     {
@@ -96,8 +104,8 @@ stopAnime = function(id)
 
 if(typeof Builder === 'function')
 {
-    // function anime(String property, int to, int time, function callback = null):@Chainable
-    Builder.prototype.anime = function(property, to, time, callback)
+    // function anime(String property, int to, int time, function callback = null, function smooth = null):@Chainable
+    Builder.prototype.anime = function(property, to, time, callback, smooth)
     {
         this.stopAnime(''+ property);
 
@@ -120,7 +128,7 @@ if(typeof Builder === 'function')
 
             self.node.style[property] = value + unit;
 
-        }, parseInt(style), to, time);
+        }, parseInt(style), to, time, smooth);
 
         return this;
     };
