@@ -95,7 +95,7 @@ smooth = {
     // function(float progression):float
     'InOut': function(progression)
     {
-        if(progression *= 2 < 1)
+        if((progression *= 2) < 1)
         {
             return 0.5 * progression * progression;
         }

@@ -25,7 +25,7 @@ smooth['CubicOut'] = function(n)
 
 smooth['CubicInOut'] = function(n)
 {
-    if(n *= 2 < 1)
+    if((n *= 2) < 1)
     {
         return 0.5 * n * n * n;
     }
@@ -47,7 +47,7 @@ smooth['QuartOut'] = function(n)
 
 smooth['QuartInOut'] = function(n)
 {
-    if(n *= 2 < 1)
+    if((n *= 2) < 1)
     {
         return 0.5 * n * n * n * n;
     }
@@ -69,7 +69,7 @@ smooth['QuintOut'] = function(n)
 
 smooth['QuintInOut'] = function(n)
 {
-    if(n *= 2 < 1)
+    if((n *= 2) < 1)
     {
         return 0.5 * n * n * n * n * n;
     }
@@ -104,7 +104,7 @@ smooth['ExpoOut'] = function(n)
 
 smooth['ExpoInOut'] = function(n)
 {
-    if(n *= 2 < 1)
+    if((n *= 2) < 1)
     {
         return 0.5 * Math.pow(2, 10 * (n - 1));
     }
@@ -128,7 +128,7 @@ smooth['CircOut'] = function(n)
 
 smooth['CircInOut'] = function(n)
 {
-    if(n *= 2 < 1)
+    if((n *= 2) < 1)
     {
         return -0.5 * (Math.sqrt(1 - n * n) - 1);
     }
