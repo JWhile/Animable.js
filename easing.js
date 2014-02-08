@@ -3,7 +3,7 @@
  *
  * https://github.com/JWhile/Animable.js
  *
- * version 1.4.1
+ * version 1.5.0
  *
  * easing.js
  *
