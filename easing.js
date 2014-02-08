@@ -25,16 +25,12 @@ smooth['CubicOut'] = function(n)
 
 smooth['CubicInOut'] = function(n)
 {
-    n *= 2;
-
-    if(n < 1)
+    if(n *= 2 < 1)
     {
-        return 1 / 2 * n * n * n;
+        return 0.5 * n * n * n;
     }
 
-    n -= 2;
-
-    return 1 / 2 * (n * n * n + 2);
+    return 0.5 * ((n -= 2) * n * n + 2);
 };
 
 smooth['QuartIn'] = function(n)
@@ -46,21 +42,17 @@ smooth['QuartOut'] = function(n)
 {
     n--;
 
-    return -1 * (n * n * n * n - 1);
+    return -(n * n * n * n - 1);
 };
 
 smooth['QuartInOut'] = function(n)
 {
-    n *= 2;
-
-    if(n < 1)
+    if(n *= 2 < 1)
     {
-        return 1 / 2 * n * n * n * n;
+        return 0.5 * n * n * n * n;
     }
 
-    n -= 2;
-
-    return -1 / 2 * (n * n * n * n - 2);
+    return -0.5 * ((n -= 2) * n * n * n - 2);
 };
 
 smooth['QuintIn'] = function(n)
@@ -77,31 +69,27 @@ smooth['QuintOut'] = function(n)
 
 smooth['QuintInOut'] = function(n)
 {
-    n *= 2;
-
-    if(n < 1)
+    if(n *= 2 < 1)
     {
-        return 1 / 2 * n * n * n * n * n;
+        return 0.5 * n * n * n * n * n;
     }
 
-    n -= 2;
-
-    return 1 / 2 * (n * n * n * n * n + 2);
+    return 0.5 * ((n -= 2) * n * n * n * n + 2);
 };
 
 smooth['SineIn'] = function(n)
 {
-    return -1 * Math.cos(n * (Math.PI / 2)) + 1;
+    return 1 - Math.cos(Math.PI / 2 * n);
 };
 
 smooth['SineOut'] = function(n)
 {
-    return Math.sin(n * (Math.PI / 2));
+    return Math.sin(Math.PI / 2 * n);
 };
 
 smooth['SineInOut'] = function(n)
 {
-    return -1 / 2 * (Math.cos(Math.PI * n) - 1);
+    return -0.5 * (Math.cos(Math.PI * n) - 1);
 };
 
 smooth['ExpoIn'] = function(n)
@@ -111,45 +99,39 @@ smooth['ExpoIn'] = function(n)
 
 smooth['ExpoOut'] = function(n)
 {
-    return -Math.pow(2, -10 * n) + 1;
+    return 1 - Math.pow(2, -10 * n);
 };
 
 smooth['ExpoInOut'] = function(n)
 {
-    n *= 2;
-
-    if(n < 1)
+    if(n *= 2 < 1)
     {
-        return 1 / 2 * Math.pow(2, 10 * (n - 1));
+        return 0.5 * Math.pow(2, 10 * (n - 1));
     }
 
-    n--;
+    --n;
 
-    return 1 / 2 * (-Math.pow(2, -10 * n) + 2);
+    return 0.5 * (-Math.pow(2, -10 * n) + 2);
 };
 
 smooth['CircIn'] = function(n)
 {
-    return -1 * (Math.sqrt(1 - n * n) - 1);
+    return 1 - Math.sqrt(1 - n * n);
 };
 
 smooth['CircOut'] = function(n)
 {
-    n--;
+    --n;
 
     return Math.sqrt(1 - n * n);
 };
 
 smooth['CircInOut'] = function(n)
 {
-    n *= 2;
-
-    if(n < 1)
+    if(n *= 2 < 1)
     {
-        return -1 / 2 * (Math.sqrt(1 - n * n) - 1);
+        return -0.5 * (Math.sqrt(1 - n * n) - 1);
     }
 
-    n -= 2;
-
-    return 1 / 2 * (Math.sqrt(1 - n * n) + 1);
+    return 0.5 * (Math.sqrt(1 - (n -= 2) * n) + 1);
 };
