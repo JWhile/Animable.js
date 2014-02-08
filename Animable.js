@@ -6,7 +6,7 @@
  * version 1.2.0
  */
 
-var anime,stopAnime;
+var anime,stopAnime,smooth;
 
 (function(){ // namespace
 
@@ -75,10 +75,39 @@ var next = function()
     }
 };
 
+smooth = {
+
+    'Line': function(currTime, endTime, endValue)
+    {
+        return currTime / endTime * endValue;
+    },
+
+    'In': function(currTime, endTime, endValue)
+    {
+        var progression = currTime / endTime;
+
+        return progression * progression * endValue;
+    },
+
+    'Out': function(currTime, endTime, endValue)
+    {
+        var progression = currTime / endTime;
+
+        return progression * (progression - 2) * endValue * -1;
+    },
+
+    'InOut': function(currTime, endTime, endValue)
+    {
+        var progression = currTime / endTime;
+
+        return progression * progression * (endValue / 2);
+    }
+};
+
 // function anime(function update, float from, float to, int time, function smooth = null):int
 anime = function(update, from, to, time, smooth)
 {
-    animations.push(new Animation(++lastAnimId, from, to, time, update, (typeof smooth === 'function')? smooth : defaultSmooth));
+    animations.push(new Animation(++lastAnimId, from, to, time, update, (typeof smooth === 'function')? smooth : smooth.Line));
 
     if(!loop)
     {
