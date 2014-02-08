@@ -18,9 +18,7 @@ smooth['CubicIn'] = function(n)
 
 smooth['CubicOut'] = function(n)
 {
-    n--;
-
-    return n * n * n + 1;
+    return --n * n * n + 1;
 };
 
 smooth['CubicInOut'] = function(n)
@@ -40,9 +38,7 @@ smooth['QuartIn'] = function(n)
 
 smooth['QuartOut'] = function(n)
 {
-    n--;
-
-    return -(n * n * n * n - 1);
+    return -(--n * n * n * n - 1);
 };
 
 smooth['QuartInOut'] = function(n)
@@ -62,9 +58,7 @@ smooth['QuintIn'] = function(n)
 
 smooth['QuintOut'] = function(n)
 {
-    n--;
-
-    return n * n * n * n * n + 1;
+    return --n * n * n * n * n + 1;
 };
 
 smooth['QuintInOut'] = function(n)
@@ -109,9 +103,7 @@ smooth['ExpoInOut'] = function(n)
         return 0.5 * Math.pow(2, 10 * (n - 1));
     }
 
-    --n;
-
-    return 0.5 * (-Math.pow(2, -10 * n) + 2);
+    return 0.5 * (-Math.pow(2, --n * -10) + 2);
 };
 
 smooth['CircIn'] = function(n)
@@ -121,9 +113,7 @@ smooth['CircIn'] = function(n)
 
 smooth['CircOut'] = function(n)
 {
-    --n;
-
-    return Math.sqrt(1 - n * n);
+    return Math.sqrt(1 - (--n) * n);
 };
 
 smooth['CircInOut'] = function(n)
