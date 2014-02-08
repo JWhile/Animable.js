@@ -67,6 +67,8 @@ _Smooth effects_ de base:
 
 _Smooth effects_ avancés (basés sur les _Easing Equations_ de _[Robert Penner](http://robertpenner.com/easing/)_):
 
+_Note: Pour utiliser les smooth effects suivant, vous devez inclure le fichier easing.js après Animable.js_
+
 * `smooth.CubicIn`
 * `smooth.CubicOut`
 * `smooth.CubicInOut`
