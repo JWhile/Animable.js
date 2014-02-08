@@ -98,10 +98,10 @@ smooth = {
     }
 };
 
-// function anime(function update, float from, float to, int time, function smooth = null):int
-anime = function(update, from, to, time, smooth)
+// function anime(function update, float from, float to, int time, function userSmooth = null):int
+anime = function(update, from, to, time, userSmooth)
 {
-    animations.push(new Animation(++lastAnimId, from, to, time, update, (typeof smooth === 'function')? smooth : smooth.Line));
+    animations.push(new Animation(++lastAnimId, from, to, time, update, (typeof userSmooth === 'function')? userSmooth : smooth.Line));
 
     if(!loop)
     {
@@ -127,8 +127,8 @@ stopAnime = function(id)
 
 if(typeof Builder === 'function')
 {
-    // function anime(String property, int to, int time, function callback = null, function smooth = null):@Chainable
-    Builder.prototype.anime = function(property, to, time, callback, smooth)
+    // function anime(String property, int to, int time, function callback = null, function userSmooth = null):@Chainable
+    Builder.prototype.anime = function(property, to, time, callback, userSmooth)
     {
         this.stopAnime(''+ property);
 
@@ -151,7 +151,7 @@ if(typeof Builder === 'function')
 
             self.node.style[property] = value + unit;
 
-        }, parseInt(style), to, time, smooth);
+        }, parseInt(style), to, time, userSmooth);
 
         return this;
     };
