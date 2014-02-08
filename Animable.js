@@ -46,12 +46,6 @@ var lastAnimId = 0; // :int
 var animations = []; // :Array<Animation>
 var loop = false; // :boolean
 
-// function defaultSmooth(int currTime, int endTime, float endValue):float
-var defaultSmooth = function(currTime, endTime, endValue)
-{
-    return currTime / endTime * endValue;
-};
-
 // function next():void
 var next = function()
 {
