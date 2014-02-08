@@ -54,10 +54,33 @@ _Note: Créer une propriété `_animations` dans le `Builder`._
 
 Contiens les effects d'accélération de base qui peuvent être transmis à `anime()`.
 
+_Smooth effects_ de base:
+
 * `smooth.Line`
 * `smooth.In`
 * `smooth.Out`
 * `smooth.InOut`
+
+_Smooth effects_ avancés (basés sur les _Easing Equations_ de _[Robert Penner](http://robertpenner.com/easing/)_):
+
+* `smooth.CubicIn`
+* `smooth.CubicOut`
+* `smooth.CubicInOut`
+* `smooth.QuartIn`
+* `smooth.QuartOut`
+* `smooth.QuartInOut`
+* `smooth.QuintIn`
+* `smooth.QuintOut`
+* `smooth.QuintInOut`
+* `smooth.SineIn`
+* `smooth.SineOut`
+* `smooth.SineInOut`
+* `smooth.ExpoIn`
+* `smooth.ExpoOut`
+* `smooth.ExpoInOut`
+* `smooth.CircIn`
+* `smooth.CircOut`
+* `smooth.CircInOut`
 
 ### License
 

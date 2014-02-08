@@ -110,7 +110,7 @@ smooth = {
     },
 
 /**
- * Les _smooth effects_ qui suivent sont basés sur les *Easing Functions* de *Robert Panner* <http://robertpenner.com/easing/>
+ * Les _smooth effects_ qui suivent sont basés sur les *Easing Functions* de *Robert Penner* <http://robertpenner.com/easing/>
  *
  * t = currTime (int)
  * c = endValue (float)
