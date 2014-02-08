@@ -4,6 +4,8 @@
  * https://github.com/JWhile/Animable.js
  *
  * version 1.4.0
+ *
+ * Animable.js
  */
 
 var anime,stopAnime,smooth;

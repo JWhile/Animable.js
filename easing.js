@@ -5,6 +5,8 @@
  *
  * version 1.4.0
  *
+ * easing.js
+ *
  * Les smooth effects qui suivent sont basés sur les Easing Functions de Robert Penner
  * http://robertpenner.com/easing/
  */
