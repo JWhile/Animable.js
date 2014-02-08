@@ -97,9 +97,16 @@ smooth = {
     // function(int currTime, int endTime, float endValue):float
     'InOut': function(currTime, endTime, endValue)
     {
-        var progression = currTime / endTime;
+        var progression = currTime / (endTime / 2);
 
-        return progression * progression * (endValue / 2);
+        if(progression < 1)
+        {
+            return endValue / 2 * progression * progression;
+        }
+
+        --progression;
+
+        return -endValue / 2 * (progression * (progression - 2) - 1);
     }
 };
 
