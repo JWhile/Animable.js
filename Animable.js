@@ -3,7 +3,7 @@
  *
  * https://github.com/JWhile/Animable.js
  *
- * version 1.3.0-fix
+ * version 1.3.1
  */
 
 var anime,stopAnime,smooth;
@@ -116,14 +116,14 @@ smooth = {
  * c = endValue
  * d = endTime
  */
-    'CubicIn' = function(t, c, d)
+    'CubicIn': function(t, c, d)
     {
         t /= d;
 
         return c * t * t * t;
     },
 
-    'CubicOut' = function(t, c, d)
+    'CubicOut': function(t, c, d)
     {
         t /= d;
         t--;
@@ -131,7 +131,7 @@ smooth = {
         return c * (t * t * t + 1);
     },
 
-    'CubicInOut' = function(t, c, d)
+    'CubicInOut': function(t, c, d)
     {
         t /= d / 2;
 
