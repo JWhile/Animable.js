@@ -37,7 +37,7 @@ Animation.prototype.next = function(now)
         return true;
     }
 
-    this.update(this.from + this.smooth(currTime, this.time, this.diff));
+    this.update(this.from + this.smooth(currTime, this.diff, this.time));
 
     return false;
 };
@@ -72,30 +72,30 @@ var next = function()
 // var smooth:Map<String, function>
 smooth = {
 
-    // function(int currTime, int endTime, float endValue):float
-    'Line': function(currTime, endTime, endValue)
+    // function(int currTime, float endValue, int endTime):float
+    'Line': function(currTime, endValue, endTime)
     {
         return currTime / endTime * endValue;
     },
 
-    // function(int currTime, int endTime, float endValue):float
-    'In': function(currTime, endTime, endValue)
+    // function(int currTime, float endValue, int endTime):float
+    'In': function(currTime, endValue, endTime)
     {
         var progression = currTime / endTime;
 
         return progression * progression * endValue;
     },
 
-    // function(int currTime, int endTime, float endValue):float
-    'Out': function(currTime, endTime, endValue)
+    // function(int currTime, float endValue, int endTime):float
+    'Out': function(currTime, endValue, endTime)
     {
         var progression = currTime / endTime;
 
         return progression * (progression - 2) * endValue * -1;
     },
 
-    // function(int currTime, int endTime, float endValue):float
-    'InOut': function(currTime, endTime, endValue)
+    // function(int currTime, float endValue, int endTime):float
+    'InOut': function(currTime, endValue, endTime)
     {
         var progression = currTime / (endTime / 2);
 
