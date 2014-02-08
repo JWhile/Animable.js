@@ -11,157 +11,145 @@
  * http://robertpenner.com/easing/
  */
 
-smooth['CubicIn'] = function(t, c, d)
+smooth['CubicIn'] = function(n)
 {
-    t /= d;
-
-    return c * t * t * t;
+    return n * n * n;
 };
 
-smooth['CubicOut'] = function(t, c, d)
+smooth['CubicOut'] = function(n)
 {
-    t /= d;
-    t--;
+    n--;
 
-    return c * (t * t * t + 1);
+    return n * n * n + 1;
 };
 
-smooth['CubicInOut'] = function(t, c, d)
+smooth['CubicInOut'] = function(n)
 {
-    t /= d / 2;
+    n *= 2;
 
-    if(t < 1)
+    if(n < 1)
     {
-        return c / 2 * t * t * t;
+        return 1 / 2 * n * n * n;
     }
 
-    t -= 2;
+    n -= 2;
 
-    return c / 2 * (t * t * t + 2);
+    return 1 / 2 * (n * n * n + 2);
 };
 
-smooth['QuartIn'] = function(t, c, d)
+smooth['QuartIn'] = function(n)
 {
-    t /= d;
-
-    return c * t * t * t * t;
+    return n * n * n * n;
 };
 
-smooth['QuartOut'] = function(t, c, d)
+smooth['QuartOut'] = function(n)
 {
-    t /= d;
-    t--;
+    n--;
 
-    return -c * (t * t * t * t - 1);
+    return -1 * (n * n * n * n - 1);
 };
 
-smooth['QuartInOut'] = function(t, c, d)
+smooth['QuartInOut'] = function(n)
 {
-    t /= d / 2;
+    n *= 2;
 
-    if(t < 1)
+    if(n < 1)
     {
-        return c / 2 * t * t * t * t;
+        return 1 / 2 * n * n * n * n;
     }
 
-    t -= 2;
+    n -= 2;
 
-    return -c / 2 * (t * t * t * t - 2);
+    return -1 / 2 * (n * n * n * n - 2);
 };
 
-smooth['QuintIn'] = function(t, c, d)
+smooth['QuintIn'] = function(n)
 {
-    t /= d;
-
-    return c * t * t * t * t * t;
+    return n * n * n * n * n;
 };
 
-smooth['QuintOut'] = function(t, c, d)
+smooth['QuintOut'] = function(n)
 {
-    t /= d;
-    t--;
+    n--;
 
-    return c * (t * t * t * t * t + 1);
+    return n * n * n * n * n + 1;
 };
 
-smooth['QuintInOut'] = function(t, c, d)
+smooth['QuintInOut'] = function(n)
 {
-    t /= d / 2;
+    n *= 2;
 
-    if(t < 1)
+    if(n < 1)
     {
-        return c / 2 * t * t * t * t * t;
+        return 1 / 2 * n * n * n * n * n;
     }
 
-    t -= 2;
+    n -= 2;
 
-    return c / 2 * (t * t * t * t * t + 2);
+    return 1 / 2 * (n * n * n * n * n + 2);
 };
 
-smooth['SineIn'] = function(t, c, d)
+smooth['SineIn'] = function(n)
 {
-    return -c * Math.cos(t / d * (Math.PI / 2)) + c;
+    return -1 * Math.cos(n * (Math.PI / 2)) + 1;
 };
 
-smooth['SineOut'] = function(t, c, d)
+smooth['SineOut'] = function(n)
 {
-    return c * Math.sin(t / d * (Math.PI / 2));
+    return Math.sin(n * (Math.PI / 2));
 };
 
-smooth['SineInOut'] = function(t, c, d)
+smooth['SineInOut'] = function(n)
 {
-    return -c / 2 * (Math.cos(Math.PI * t/d) - 1);
+    return -1 / 2 * (Math.cos(Math.PI * n) - 1);
 };
 
-smooth['ExpoIn'] = function(t, c, d)
+smooth['ExpoIn'] = function(n)
 {
-    return c * Math.pow(2, 10 * (t / d - 1));
+    return Math.pow(2, 10 * (n - 1));
 };
 
-smooth['ExpoOut'] = function(t, c, d)
+smooth['ExpoOut'] = function(n)
 {
-    return c * (-Math.pow(2, -10 * t/d) + 1);
+    return -Math.pow(2, -10 * n) + 1;
 };
 
-smooth['ExpoInOut'] = function(t, c, d)
+smooth['ExpoInOut'] = function(n)
 {
-    t /= d / 2;
+    n *= 2;
 
-    if(t < 1)
+    if(n < 1)
     {
-        return c / 2 * Math.pow(2, 10 * (t - 1));
+        return 1 / 2 * Math.pow(2, 10 * (n - 1));
     }
 
-    t--;
+    n--;
 
-    return c / 2 * (-Math.pow(2, -10 * t) + 2);
+    return 1 / 2 * (-Math.pow(2, -10 * n) + 2);
 };
 
-smooth['CircIn'] = function(t, c, d)
+smooth['CircIn'] = function(n)
 {
-    t /= d;
-
-    return -c * (Math.sqrt(1 - t * t) - 1);
+    return -1 * (Math.sqrt(1 - n * n) - 1);
 };
 
-smooth['CircOut'] = function(t, c, d)
+smooth['CircOut'] = function(n)
 {
-    t /= d;
-    t--;
+    n--;
 
-    return c * Math.sqrt(1 - t * t);
+    return Math.sqrt(1 - n * n);
 };
 
-smooth['CircInOut'] = function(t, c, d)
+smooth['CircInOut'] = function(n)
 {
-    t /= d / 2;
+    n *= 2;
 
-    if(t < 1)
+    if(n < 1)
     {
-        return -c / 2 * (Math.sqrt(1 - t * t) - 1);
+        return -1 / 2 * (Math.sqrt(1 - n * n) - 1);
     }
 
-    t -= 2;
+    n -= 2;
 
-    return c / 2 * (Math.sqrt(1 - t * t) + 1);
+    return 1 / 2 * (Math.sqrt(1 - n * n) + 1);
 };

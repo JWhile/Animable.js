@@ -30,16 +30,16 @@ function Animation(id, from, to, time, update, smooth)
 // function next(long now):boolean
 Animation.prototype.next = function(now)
 {
-    var currTime = now - this.start;
+    var progression = (now - this.start) / this.time;
 
-    if(currTime >= this.time)
+    if(progression >= 1)
     {
         this.update(this.diff + this.from);
 
         return true;
     }
 
-    this.update(this.from + this.smooth(currTime, this.diff, this.time));
+    this.update(this.diff * this.smooth(progression) + this.from);
 
     return false;
 };
@@ -74,41 +74,37 @@ var next = function()
 // var smooth:Map<String, function>
 smooth = {
 
-    // function(int currTime, float endValue, int endTime):float
-    'Line': function(currTime, endValue, endTime)
+    // function(float progression):float
+    'Line': function(progression)
     {
-        return currTime / endTime * endValue;
+        return progression;
     },
 
-    // function(int currTime, float endValue, int endTime):float
-    'In': function(currTime, endValue, endTime)
+    // function(float progression):float
+    'In': function(progression)
     {
-        var progression = currTime / endTime;
-
-        return progression * progression * endValue;
+        return progression * progression;
     },
 
-    // function(int currTime, float endValue, int endTime):float
-    'Out': function(currTime, endValue, endTime)
+    // function(float progression):float
+    'Out': function(progression)
     {
-        var progression = currTime / endTime;
-
-        return progression * (progression - 2) * endValue * -1;
+        return progression * (progression - 2) * -1;
     },
 
-    // function(int currTime, float endValue, int endTime):float
-    'InOut': function(currTime, endValue, endTime)
+    // function(float progression):float
+    'InOut': function(progression)
     {
-        var progression = currTime / (endTime / 2);
+        progression *= 2;
 
         if(progression < 1)
         {
-            return endValue / 2 * progression * progression;
+            return 1 / 2 * progression * progression;
         }
 
         --progression;
 
-        return -endValue / 2 * (progression * (progression - 2) - 1);
+        return -1 / 2 * (progression * (progression - 2) - 1);
     }
 };
 
