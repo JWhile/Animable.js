@@ -107,6 +107,42 @@ smooth = {
         --progression;
 
         return -endValue / 2 * (progression * (progression - 2) - 1);
+    },
+
+/**
+ * Les effets qui suivent sont basés sur les *Easing Functions* de *Robert Panner* <http://robertpenner.com/easing/>
+ *
+ * t = currTime
+ * c = endValue
+ * d = endTime
+ */
+    'CubicIn' = function(t, c, d)
+    {
+        t /= d;
+
+        return c * t * t * t;
+    },
+
+    'CubicOut' = function(t, c, d)
+    {
+        t /= d;
+        t--;
+
+        return c * (t * t * t + 1);
+    },
+
+    'CubicInOut' = function(t, c, d)
+    {
+        t /= d / 2;
+
+        if(t < 1)
+        {
+            return c / 2 * t * t * t;
+        }
+
+        t -= 2;
+
+        return c / 2 * (t * t * t + 2);
     }
 };
 
