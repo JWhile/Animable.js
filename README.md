@@ -19,7 +19,7 @@ Renvois l'_id_ (_int_) de l'animation.
 * `from` _Number_ Nombre de départ.
 * `to` _Number_ Nombre de fin.
 * `time` _int_ Durée de l'animation.
-* `smooth` _function_ Fonction d'accélération de l'animation. Par défault `function(a,b,c){return a / b * c;}`. _(Optionnel)_
+* `smooth` _function_ Fonction d'accélération de l'animation. Par défault `smooth.Line`. _(Optionnel)_
 
 ##### function stopAnime(id)
 
@@ -37,7 +37,7 @@ Détecte automatiquement la valeur de départ et l'unité.
 * `to` _int_ Valeur de fin (sans l'unité).
 * `time` _int_ Durée de l'animation.
 * `callback` _function_ Fonction exécutée à la fin de l'animation. Par défault `null`. _(Optionnel)_
-* `smooth` _function_ Fonction d'accélération de l'animation. Par défault `function(a,b,c){return a / b * c;}`. _(Optionnel)_
+* `smooth` _function_ Fonction d'accélération de l'animation. Par défault `smooth.Line`. _(Optionnel)_
 
 _Note: Créer une propriété `_animations` dans le `Builder`._
 
@@ -49,6 +49,15 @@ Si `property` n'est pas défini, arrête toute les animations lié à ce _Builde
 * `property` _String_ Propriété animée à stoppper. _(Optionnel)_
 
 _Note: Créer une propriété `_animations` dans le `Builder`._
+
+##### var smooth
+
+Contiens les effects d'accélération de base qui peuvent être transmis à `anime()`.
+
+* `smooth.Line`
+* `smooth.In`
+* `smooth.Out`
+* `smooth.InOut`
 
 ### License
 
