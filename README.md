@@ -4,6 +4,10 @@ _v1.4.0_
 
 Make Builder Animable !
 
+_Animable.js_ requière [RequestFrame.js](https://github.com/JWhile/RequestFrame.js).
+
+_Animable.js_ requière [Builder.js](https://github.com/JWhile/Builder.js) **Optionnel !** _Pour ajouter les methodes Builder::anime() & Builder::stopAnime()_
+
 ### Exemple
 
 [Exemple](http://jwhile.github.io/#Animable)
