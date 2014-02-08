@@ -143,6 +143,132 @@ smooth = {
         t -= 2;
 
         return c / 2 * (t * t * t + 2);
+    },
+
+    'QuartIn': function(t, c, d)
+    {
+        t /= d;
+
+        return c * t * t * t * t;
+    },
+
+    'QuartOut': function(t, c, d)
+    {
+        t /= d;
+        t--;
+
+        return -c * (t * t * t * t - 1);
+    },
+
+    'QuartInOut': function(t, c, d)
+    {
+        t /= d / 2;
+
+        if(t < 1)
+        {
+            return c / 2 * t * t * t * t;
+        }
+
+        t -= 2;
+
+        return -c / 2 * (t * t * t * t - 2);
+    },
+
+    'QuintIn': function(t, c, d)
+    {
+        t /= d;
+
+        return c * t * t * t * t * t;
+    },
+
+    'QuintOut': function(t, c, d)
+    {
+        t /= d;
+        t--;
+
+        return c * (t * t * t * t * t + 1);
+    },
+
+    'QuintInOut': function(t, c, d)
+    {
+        t /= d / 2;
+
+        if(t < 1)
+        {
+            return c / 2 * t * t * t * t * t;
+        }
+
+        t -= 2;
+
+        return c / 2 * (t * t * t * t * t + 2);
+    },
+
+    'SineIn': function(t, c, d)
+    {
+        return -c * Math.cos(t / d * (Math.PI / 2)) + c;
+    },
+
+    'SineOut': function(t, c, d)
+    {
+        return c * Math.sin(t / d * (Math.PI / 2));
+    },
+
+    'SineInOut': function(t, c, d)
+    {
+        return -c / 2 * (Math.cos(Math.PI * t/d) - 1);
+    },
+
+    'ExpoIn': function(t, c, d)
+    {
+        return c * Math.pow(2, 10 * (t / d - 1));
+    },
+
+    'ExpoOut': function(t, c, d)
+    {
+        return c * (-Math.pow(2, -10 * t/d) + 1);
+    },
+
+    'ExpoInOut': function(t, c, d)
+    {
+        t /= d / 2;
+
+        if(t < 1)
+        {
+            return c / 2 * Math.pow(2, 10 * (t - 1));
+        }
+
+        t--;
+
+        return c / 2 * (-Math.pow(2, -10 * t) + 2);
+    },
+
+    'CircIn': function(t, c, d)
+    {
+        t /= d;
+
+        return -c * (Math.sqrt(1 - t * t) - 1);
+    },
+
+    'CircOut': function(t, c, d)
+    {
+        t /= d;
+        t--;
+
+        return c * Math.sqrt(1 - t * t);
+    },
+
+    'CircInOut': function(t, c, d)
+    {
+        t /= d / 2;
+
+        if(t < 1)
+        {
+            return -c / 2 * (Math.sqrt(1 - t * t) - 1);
+        }
+
+        t -= 2;
+
+        return c / 2 * (Math.sqrt(1 - t * t) + 1);
     }
 };
 
