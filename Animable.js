@@ -37,7 +37,7 @@ Animation.prototype.next = function(now)
         return true;
     }
 
-    this.update(this.smooth(currTime, this.time, this.diff + this.from));
+    this.update(this.from + this.smooth(currTime, this.time, this.diff));
 
     return false;
 };
