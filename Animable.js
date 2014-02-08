@@ -69,13 +69,16 @@ var next = function()
     }
 };
 
+// var smooth:Map<String, function>
 smooth = {
 
+    // function(int currTime, int endTime, float endValue):float
     'Line': function(currTime, endTime, endValue)
     {
         return currTime / endTime * endValue;
     },
 
+    // function(int currTime, int endTime, float endValue):float
     'In': function(currTime, endTime, endValue)
     {
         var progression = currTime / endTime;
@@ -83,6 +86,7 @@ smooth = {
         return progression * progression * endValue;
     },
 
+    // function(int currTime, int endTime, float endValue):float
     'Out': function(currTime, endTime, endValue)
     {
         var progression = currTime / endTime;
@@ -90,6 +94,7 @@ smooth = {
         return progression * (progression - 2) * endValue * -1;
     },
 
+    // function(int currTime, int endTime, float endValue):float
     'InOut': function(currTime, endTime, endValue)
     {
         var progression = currTime / endTime;
