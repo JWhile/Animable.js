@@ -1,6 +1,6 @@
 # Animable
 
-_v1.5.1_
+_v1.5.2_
 
 Make Builder Animable !
 
