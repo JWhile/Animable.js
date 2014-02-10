@@ -102,6 +102,27 @@ smooth = {
     'Elastic': function(progression)
     {
         return Math.pow(2, -10 * progression) * Math.sin((progression * 0.075) * (Math.PI * 2) / 0.3) + 1;
+    },
+
+    // function(float progression):float
+    'Bounce': function(progression)
+    {
+        if(progression < (1 / 2.75))
+        {
+            return 7.5625 * progression * progression;
+        }
+        else if(progression < (2 / 2.75))
+        {
+            return 7.5625 * (progression -= (1.5 / 2.75)) * progression + 0.75;
+        }
+        else if(progression < (2.5 / 2.75))
+        {
+            return 7.5625 * (progression -= (2.25 / 2.75)) * progression + 0.9375;
+        }
+        else
+        {
+            return 7.5625 * (progression -= (2.625 / 2.75)) * progression + 0.984375;
+        }
     }
 };
 
