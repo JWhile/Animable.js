@@ -101,6 +101,12 @@ smooth = {
         }
 
         return -0.5 * (--progression * (progression - 2) - 1);
+    },
+
+    // function(float progression):float
+    'Elastic': function(progression)
+    {
+        return Math.pow(2, -10 * progression) * Math.sin((progression * 0.075) * (Math.PI * 2) / 0.3) + 1;
     }
 };
 
