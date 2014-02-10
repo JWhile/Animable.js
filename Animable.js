@@ -107,27 +107,15 @@ smooth = {
     // function(float progression):float
     'Bounce': function(progression)
     {
-        var a = 0;
-        if(progression >= (2.5 / 2.75))
+        progression = 1 - progression;
+
+        for(var a = 0, b = 1; true; a += b, b /= 2)
         {
-            progression -= (2.625 / 2.75);
-
-            a = 0.984375;
+            if(progression >= ((7 - (4 * a)) / 11))
+            {
+                return 1 - (b * b - Math.pow((11 - (6 * a) - (11 * progression)) / 4, 2));
+            }
         }
-        else if(progression >= (2 / 2.75))
-        {
-            progression -= (2.25 / 2.75);
-
-            a = 0.9375;
-        }
-        else if(progression >= (1 / 2.75))
-        {
-            progression -= (1.5 / 2.75);
-
-            a = 0.75;
-        }
-
-        return 7.5625 * progression * progression + a;
     }
 };
 
